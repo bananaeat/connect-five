@@ -1,7 +1,7 @@
 import { pieceChar } from './Connect5Helper.react'
 
 function Grid(props) {
-    const w = Math.min(parseInt(window.innerWidth / 20), parseInt(window.innerHeight / 12), 40);
+    const w = Math.min(parseInt(window.innerWidth / 12), parseInt(window.innerHeight / 12), 40);
     const gridStyle = {
         backgroundColor: (props.gridColor === 0 ? '#FFFFFF' : '#DFDFDF'),
         width: w + 'px',
