@@ -1,0 +1,32 @@
+.container {
+    height: 100vh;
+    position: relative;
+}
+
+.gameContainer {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.square {
+    background-color: white;
+    border: 1px solid;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: -1px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.buttonGroup {
+    margin-top: 16px;
+}
