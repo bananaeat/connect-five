@@ -7,9 +7,7 @@
     margin: 0;
     position: absolute;
     top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,7 +15,6 @@
 }
 
 .square {
-    background-color: white;
     border: 1px solid;
     float: left;
     width: 40px;
