@@ -94,12 +94,12 @@ export function connected(type, lower, higher, r, c){
             return results;
         case 3:
             for(i = lower; i <= higher; i++){
-                results.push([i, r - i + c]);
+                results.push([i, i - r + c]);
             }
             return results;
         case 4:
             for(i = lower; i <= higher; i++){
-                results.push([i, i - r + c]);
+                results.push([i, r - i + c]);
             }
             return results;
         default:
