@@ -5,8 +5,8 @@ import { Outlet, Link } from "react-router-dom";
 
 function TopMenu(props) {
     return (
-      <Navbar bg="light" expand="lg">
-        <Container style={{height: '10vh'}}>
+      <Navbar collapseOnSelect bg="light" expand="lg">
+        <Container>
           <Navbar.Brand href="#home">GameCollection</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

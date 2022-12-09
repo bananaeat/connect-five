@@ -1,14 +1,5 @@
-.container {
-    height: 90vh;
-    position: relative;
-    margin: 0;
-}
-
 .gameContainer {
-    margin: 0;
-    position: relative;
-    top: 50%;
-    transform: translate(0%, -50%);
+    margin-top: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;

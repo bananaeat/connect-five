@@ -89,15 +89,13 @@ function Connect5() {
     return (<Row>
                 <Col/>
                 <Col xs={16} sm={12} md={8} lg={6}>
-                <div className="container">
-                        <div className='gameContainer'>
-                            <Map pieces={pieces} colors={colors} onClicks={gridOnClicks}/>
-                            <div className='buttonGroup'>
-                                <Button variant='primary' onClick={rematchOnClick}> Rematch </Button>
-                            </div>
-                            <div>Current Player: {pieceChar(player)}</div>
-                            {winner !== 0 && (<div>Winner is: {pieceChar(winner)}</div>)}
+                    <div className='gameContainer'>
+                        <Map pieces={pieces} colors={colors} onClicks={gridOnClicks}/>
+                        <div className='buttonGroup'>
+                            <Button variant='primary' onClick={rematchOnClick}> Rematch </Button>
                         </div>
+                        <div>Current Player: {pieceChar(player)}</div>
+                        {winner !== 0 && (<div>Winner is: {pieceChar(winner)}</div>)}
                     </div>
                 </Col>
                 <Col/>

@@ -44,7 +44,7 @@ function CommentItem(props){
                     {props.content}
                 </Card.Text>
             </Card.Body>
-            <Card.Footer className="text-muted">{"Created at " + props.createdAt + ", updated at " + props.updatedAt}</Card.Footer>
+            <Card.Footer className="text-muted commentFooter">{"Created at " + props.createdAt + ", updated at " + props.updatedAt}</Card.Footer>
         </Card>
     )
 }

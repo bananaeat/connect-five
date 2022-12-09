@@ -5,18 +5,22 @@
 }
 
 .commentTitle{
-    font-size: 20px;
+    font-size: calc(0.6em + 0.6vw);
     display: flex;
     justify-content: space-between;
     color: #2f2f2f;
 }
 
-.commentDeleteButton{
-    float: right;
+.commenctContent{
+    font-size: calc(0.6em + 0.6vw);
 }
 
-.commentContent{
-    font-size: 16px;
+.commentFooter{
+    font-size: calc(0.5em + 0.5vw);
+}
+
+.commentDeleteButton{
+    float: right;
 }
 
 .commentInputCard{
