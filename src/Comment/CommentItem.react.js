@@ -15,7 +15,6 @@ const placeholderComment = (<Card className="commentItem">
                                 <Placeholder as={Card.Body} animation="glow">
                                     <Placeholder as={Card.Text} animation="glow">
                                         <Placeholder xs={12} />
-                                        <Placeholder xs={12} />
                                         <Placeholder xs={7} />
                                     </Placeholder>
                                 </Placeholder>
@@ -45,6 +44,7 @@ function CommentItem(props){
                     {props.content}
                 </Card.Text>
             </Card.Body>
+            <Card.Footer className="text-muted">{"Created at " + props.createdAt + ", updated at " + props.updatedAt}</Card.Footer>
         </Card>
     )
 }

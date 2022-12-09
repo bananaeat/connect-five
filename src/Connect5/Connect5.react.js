@@ -53,12 +53,9 @@ function Connect5() {
                     setWinner(newPlayer);
                     const newColors = colors.slice();
                     const colorChangeList = connected(t, lower, higher, r, c);
-                    console.log(colorChangeList);
                     colorChangeList.forEach((pair, _) => {
-                        console.log(pair);
                         newColors[pair[0]][pair[1]] = 1;
                     })
-                    console.log(newColors);
                     setColors(newColors);
                 }   
             }

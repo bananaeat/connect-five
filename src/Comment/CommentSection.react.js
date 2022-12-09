@@ -1,40 +1,11 @@
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { API, graphqlOperation } from 'aws-amplify';
-import { createComment } from '../graphql/mutations';
 import { listComments } from '../graphql/queries';
 import { onCreateComment } from '../graphql/subscriptions';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import CommentItem from './CommentItem.react';
-
-async function onSubmitComment(textareaRef){
-    const comment = {content: textareaRef.current.value};
-    console.log(comment);
-    if(textareaRef.current.value != null)
-        await API.graphql(graphqlOperation(createComment, {input: comment}));
-}
-
-function CommentForm(props) {
-    const commentRef = useRef(null);
-    return (
-        <Form onSubmit={!props.loading ? () => {props.setLoading(true); onSubmitComment(commentRef);} : null}>
-            <Form.Group className="mb-3">
-                <Form.Label htmlFor="comment">Comment</Form.Label>
-                <Form.Control 
-                        ref={commentRef}
-                        as="textarea"
-                        rows={6}
-                        id="comment"
-                    />
-            </Form.Group>
-            <Button variant="primary" type="submit" disabled={props.loading}>
-                {props.loading ? "Loading..." : "Submit"}
-            </Button>  
-        </Form>
-    );
-}
+import CommentForm from './CommentForm.react';
 
 async function getComments(setComments, setLoading){
     const comments = (await API.graphql(graphqlOperation(listComments))).data.listComments.items;
@@ -70,7 +41,9 @@ function CommentSection() {
                             key={c.id}
                             id={c.id} 
                             content={c.content} 
-                            title={"Comment created at " + c.createdAt + ", updated at " + c.updatedAt} 
+                            title={"Comment "+ c.id}
+                            createdAt={c.createdAt}
+                            updatedAt={c.updatedAt} 
                             loading={loading}
                             onUpdate={() => {getComments(setComments, setLoading);}}/>;
             })}
