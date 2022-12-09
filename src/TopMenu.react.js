@@ -1,6 +1,7 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container } from "react-bootstrap";
+import { Outlet, Link } from "react-router-dom";
 
 function TopMenu(props) {
     return (
@@ -10,9 +11,9 @@ function TopMenu(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home" onClick={() => {props.setPage(0);}}>Home</Nav.Link>
-              <Nav.Link href="#Connect5" onClick={() => {props.setPage(1);}}>Connect5</Nav.Link>
-              <Nav.Link href="#Comment" onClick={() => {props.setPage(2);}}>Comment</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/connect5">Connect5</Nav.Link>
+              <Nav.Link href="/comment">Comment</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
