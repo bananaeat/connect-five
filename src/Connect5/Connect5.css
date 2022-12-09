@@ -7,6 +7,10 @@
 }
 
 .square {
+    width: min(8.3vw, 8.3vh, 40px);
+    height: min(8.3vw, 8.3vh, 40px);
+    line-height: min(8.3vw, 8.3vh, 40px);
+    font-size: min(4.1vw, 4.1vh, 20px);
     border: 1px solid;
     float: left;
     margin: -1px;
