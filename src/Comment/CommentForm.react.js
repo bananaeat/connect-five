@@ -17,7 +17,7 @@ function CommentForm(props) {
     return (
         <Card className="commentInputCard">
             <Card.Body>
-                <Form onSubmit={!props.loading ? () => {props.setLoading(true); onSubmitComment(commentRef);} : null}>
+                <Form onSubmit={!props.loading ? event => {event.preventDefault(); props.setLoading(true); onSubmitComment(commentRef);} : null}>
                     <Form.Group className="mb-3">
                         <Form.Label htmlFor="comment">Comment</Form.Label>
                         <Form.Control 
