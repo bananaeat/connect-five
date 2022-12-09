@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Grid from './Grid.react'
+import { Row, Col } from "react-bootstrap";
 import { pieceChar, testWin, connected } from './Connect5Helper.react'
 import { useState } from 'react';
 import './Connect5.css';
@@ -11,7 +12,6 @@ function Map(props) {
     const rowArr = Array.from({ length: boardRows }, (_, i) => i);
     const colArr = Array.from({ length: boardCols }, (_, i) => i);
     return (
-        <div>
             <div>
                 {rowArr.map(i => {
                     return ( <div key={i}>
@@ -25,8 +25,7 @@ function Map(props) {
                         })}
                     </div> );
                 })}
-            </div>
-        </div>
+            </div>   
     )
 }
 
@@ -87,18 +86,23 @@ function Connect5() {
 
     const gridOnClicks = Array.from({ length: boardRows }, (_, r) => Array.from({ length: boardCols }, (_, c) => gridOnClick(r, c)));
 
-    return (
-        <div className="container">
-            <div className='gameContainer'>
-                <Map pieces={pieces} colors={colors} onClicks={gridOnClicks}/>
-                <div className='buttonGroup'>
-                    <Button variant='primary' onClick={rematchOnClick}> Rematch </Button>
-                </div>
-                <div>Current Player: {pieceChar(player)}</div>
-                {winner !== 0 && (<div>Winner is: {pieceChar(winner)}</div>)}
-            </div>
-        </div>
-    );
+    return (<Row>
+                <Col/>
+                <Col xs={16} sm={12} md={8} lg={6}>
+                <div className="container">
+                        <div className='gameContainer'>
+                            <Map pieces={pieces} colors={colors} onClicks={gridOnClicks}/>
+                            <div className='buttonGroup'>
+                                <Button variant='primary' onClick={rematchOnClick}> Rematch </Button>
+                            </div>
+                            <div>Current Player: {pieceChar(player)}</div>
+                            {winner !== 0 && (<div>Winner is: {pieceChar(winner)}</div>)}
+                        </div>
+                    </div>
+                </Col>
+                <Col/>
+            </Row>
+        );
 }
 
 export default Connect5;
