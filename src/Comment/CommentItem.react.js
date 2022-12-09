@@ -37,7 +37,7 @@ function CommentItem(props){
         <Card className="commentItem">
             <Card.Header className="commentTitle">
                 <div>{props.title}</div>
-                <CloseButton className="commentDeleteButton" disabled={!DEVELOPMENT} onClick={() => {onClickDelete();}}/>
+                {DEVELOPMENT && (<CloseButton className="commentDeleteButton" onClick={() => {onClickDelete();}}/>)}
             </Card.Header>
             <Card.Body>
                 <Card.Text className="commentContent">
