@@ -1,5 +1,5 @@
 import { Amplify } from 'aws-amplify';
-import awsconfig from './aws-exports';
+import awsmobile from './aws-exports';
 
 import Connect5 from './Connect5/Connect5.react';
 import TopMenu from './TopMenu.react';
@@ -8,7 +8,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useState } from 'react';
 import './App.css';
 
-Amplify.configure(awsconfig);
+Amplify.configure(awsmobile);
 
 function App() {
   const [page, setPage] = useState(0);
