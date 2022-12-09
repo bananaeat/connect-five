@@ -1,0 +1,20 @@
+.commentItem{
+    margin-bottom: 16px;
+    margin-top: 16px;
+    min-height: 100px;
+}
+
+.commentTitle{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #2f2f2f;
+}
+
+.commentDeleteButton{
+    float: right;
+}
+
+.commentContent{
+    font-size: 16px;
+}
