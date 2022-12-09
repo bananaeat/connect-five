@@ -1,53 +1,48 @@
+import { Amplify } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
 import Connect5 from './Connect5/Connect5.react';
+import TopMenu from './TopMenu.react';
+import CommentSection from './Comment/CommentSection.react';
 import { Container, Row, Col } from "react-bootstrap";
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useState } from 'react';
 import './App.css';
 
-function AppMenu() {
-  return (
-    <Navbar bg="light" expand="lg">
-      <Container style={{height: '10vh'}}>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  ); 
-}
+Amplify.configure(awsconfig);
 
 function App() {
-  return (
-    <Container>
-      <Row>
-        <Col>
-          <AppMenu />
-        </Col>
-      </Row>
-      <Row>
+  const [page, setPage] = useState(0);
+  var content;
+  switch(page){
+    case 0:
+      content = (
+        <div>Hello World!</div>
+      );
+      break;
+    case 1:
+      content = (<Row>
         <Col/>
         <Col xs={16} sm={12} md={8} lg={6}>
           <Connect5 />
         </Col>
         <Col/>
+      </Row>);
+      break;
+    case 2:
+      content = (<CommentSection />);
+      break;
+    default:
+      content = <></>;
+  }
+
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <TopMenu setPage={setPage}/>
+        </Col>
       </Row>
+      {content}
     </Container>
   );
 }
