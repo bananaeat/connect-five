@@ -1,6 +1,6 @@
 import { API, graphqlOperation } from 'aws-amplify';
 import { listComments } from '../graphql/queries';
-import { onCreateComment } from '../graphql/subscriptions';
+import { onCreateComment, onDeleteComment, onUpdateComment } from '../graphql/subscriptions';
 
 import { useEffect, useState } from 'react';
 
@@ -29,6 +29,23 @@ function CommentSection() {
                 getComments(setComments, setLoading);
             }
         });
+
+        API.graphql(
+            graphqlOperation(onDeleteComment)
+        ).subscribe({
+            next: (commentData) => {
+                getComments(setComments, setLoading);
+            }
+        });
+
+        API.graphql(
+            graphqlOperation(onUpdateComment)
+        ).subscribe({
+            next: (commentData) => {
+                getComments(setComments, setLoading);
+            }
+        });
+
 
         // Load comments once after loading the page
         getComments(setComments, setLoading);
