@@ -6,6 +6,7 @@ import { deleteComment } from "../graphql/mutations";
 import { useState } from 'react';
 import "./Comment.css"
 
+const DEVELOPMENT = false;
 
 const placeholderComment = (<Card className="commentItem">
                                 <Placeholder as={Card.Header} animation="glow">
@@ -37,7 +38,7 @@ function CommentItem(props){
         <Card className="commentItem">
             <Card.Header className="commentTitle">
                 <div>{props.title}</div>
-                <CloseButton className="commentDeleteButton" onClick={() => {onClickDelete();}}/>
+                <CloseButton className="commentDeleteButton" disabled={!DEVELOPMENT} onClick={() => {onClickDelete();}}/>
             </Card.Header>
             <Card.Body>
                 <Card.Text className="commentContent">
