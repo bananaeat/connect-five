@@ -1,7 +1,6 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container } from "react-bootstrap";
-import { Outlet, Link } from "react-router-dom";
 
 function TopMenu(props) {
     return (
@@ -14,6 +13,9 @@ function TopMenu(props) {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/connect5">Connect5</Nav.Link>
               <Nav.Link href="/comment">Comment</Nav.Link>
+            </Nav>
+            <Nav>
+              <Nav.Link onClick={props.signOut}>Sign Out</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

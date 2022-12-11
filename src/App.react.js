@@ -1,5 +1,8 @@
-import { Amplify } from 'aws-amplify';
+import { Amplify, Auth } from 'aws-amplify';
 import awsmobile from './aws-exports';
+
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 import Connect5 from './Connect5/Connect5.react';
 import TopMenu from './TopMenu.react';
@@ -9,20 +12,21 @@ import { Container, Row, Col } from "react-bootstrap";
 import './App.css';
 
 Amplify.configure(awsmobile);
+Auth.configure(awsmobile);
 
-function App() {
+function App({ signOut, user }) {
   return (
     <div>
       <BrowserRouter>
       <Container>
         <Row>
           <Col>
-            <TopMenu/>
+            <TopMenu signOut={signOut}/>
           </Col>
         </Row>
         <Routes>
           <Route path="/">
-            <Route index element={<div>Hello World!</div>} />
+            <Route index element={<div>Hello, {user.username}</div>} />
             <Route path="connect5" element={<Connect5 />} />
             <Route path="comment" element={<CommentSection />} />
 
@@ -49,4 +53,4 @@ function NoMatch() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);

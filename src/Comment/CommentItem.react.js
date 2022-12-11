@@ -29,7 +29,7 @@ function CommentItem(props){
         const commentDetail = {
             id: props.id
         };
-        const deletedComment = await API.graphql({ query: deleteComment, variables: {input: commentDetail}});
+        await API.graphql({ query: deleteComment, variables: {input: commentDetail}});
         props.onUpdate();
     }
 
