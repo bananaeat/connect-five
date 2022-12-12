@@ -65,6 +65,16 @@ function SuccessModal(props){
   </Modal>);
 }
 
+function handleVerifyEmail(updateUserEmail, newEmail, setShowSendCode, setError){
+  if(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(newEmail)){
+    setError(null);
+    updateUserEmail(newEmail);
+    setShowSendCode(true);
+  } else {
+    setError("Invalid new email address!")
+  }
+}
+
 function ChangeEmailUI(props){
     const [showSendCode, setShowSendCode] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
@@ -78,7 +88,7 @@ function ChangeEmailUI(props){
                         <Form.Label>New email address</Form.Label>
                         <Form.Control type="email" ref={emailRef} placeholder="name@example.com" />
                       </Form.Group>
-                      <Button onClick={() => {updateUserEmail(emailRef.current.value); setShowSendCode(true);}}>
+                      <Button onClick={() => handleVerifyEmail(updateUserEmail, emailRef.current.value, setShowSendCode, setError)}>
                         Update Email
                       </Button>
                     </Form>
