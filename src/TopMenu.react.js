@@ -1,6 +1,7 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container } from "react-bootstrap";
+import { BsFillFilePersonFill } from "react-icons/bs";
 
 function TopMenu(props) {
     return (
@@ -15,6 +16,7 @@ function TopMenu(props) {
               <Nav.Link href="/comment">Comment</Nav.Link>
             </Nav>
             <Nav>
+              <Nav.Link href="/profile">Profile<BsFillFilePersonFill/></Nav.Link>
               <Nav.Link onClick={props.signOut}>Sign Out</Nav.Link>
             </Nav>
           </Navbar.Collapse>

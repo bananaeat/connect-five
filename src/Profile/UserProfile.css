@@ -1,0 +1,8 @@
+.userContainer{
+    margin: 16px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+}

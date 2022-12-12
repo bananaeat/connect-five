@@ -10,6 +10,7 @@ import CommentSection from './Comment/CommentSection.react';
 import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
 import { Container, Row, Col } from "react-bootstrap";
 import './App.css';
+import UserProfile from './Profile/UserProfile.react';
 
 Amplify.configure(awsmobile);
 Auth.configure(awsmobile);
@@ -29,10 +30,7 @@ function App({ signOut, user }) {
             <Route index element={<div>Hello, {user.username}</div>} />
             <Route path="connect5" element={<Connect5 />} />
             <Route path="comment" element={<CommentSection />} />
-
-            {/* Using path="*"" means "match anything", so this route
-                  acts like a catch-all for URLs that we don't have explicit
-                  routes for. */}
+            <Route path="profile" element={<UserProfile user={user}/>} />
             <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
