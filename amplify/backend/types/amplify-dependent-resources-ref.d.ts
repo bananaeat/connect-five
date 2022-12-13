@@ -12,9 +12,16 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "api": {
         "connectfive": {
-            "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
+        }
+    },
+    "function": {
+        "CreateConnect5Game": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
         }
     }
 }

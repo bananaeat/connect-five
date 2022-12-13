@@ -13,14 +13,20 @@ const GRAPHQL_ENDPOINT = process.env.API_CONNECTFIVE_GRAPHQLAPIENDPOINTOUTPUT;
 const AWS_REGION = process.env.AWS_REGION || 'us-east-1';
 const { Sha256 } = crypto;
 
-const query = /* GraphQL */ `
-  query LIST_TODOS {
-    listTodos {
-      items {
-        id
-        name
-        description
-      }
+const createConnect5Game = /* GraphQL */ `
+  mutation CreateConnect5Game(
+    $input: CreateConnect5GameInput!
+    $condition: ModelConnect5GameConditionInput
+  ) {
+    createConnect5Game(input: $input, condition: $condition) {
+      player1
+      player2
+      moves
+      currentPlayer
+      id
+      createdAt
+      updatedAt
+      owner
     }
   }
 `;
@@ -32,7 +38,18 @@ const query = /* GraphQL */ `
  export const handler = async (event) => {
   console.log(`EVENT: ${JSON.stringify(event)}`);
 
+  const player = event['playerID'];
+
   const endpoint = new URL(GRAPHQL_ENDPOINT);
+
+  const variables = {
+    input: {
+      player1: player,
+      player2: null,
+      moves: [],
+      currentPlayer: player,
+    }
+  }
 
   const signer = new SignatureV4({
     credentials: defaultProvider(),
@@ -48,7 +65,7 @@ const query = /* GraphQL */ `
       host: endpoint.host
     },
     hostname: endpoint.host,
-    body: JSON.stringify({ query }),
+    body: JSON.stringify({ query, variables }),
     path: endpoint.pathname
   });
 
