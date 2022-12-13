@@ -38,7 +38,7 @@ const createConnect5Game = /* GraphQL */ `
  export const handler = async (event) => {
   console.log(`EVENT: ${JSON.stringify(event)}`);
 
-  const player = event['playerID'];
+  const player = event.arguments.playerID;
 
   const endpoint = new URL(GRAPHQL_ENDPOINT);
 
