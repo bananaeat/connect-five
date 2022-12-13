@@ -14,5 +14,5 @@ type Connect5Game @model @auth(rules: [{ allow: owner }]){
 }
 
 type Mutation {
-  createGame(playerID: String): String @function(name: "createConnect5Game")
+  createGame(playerID: String): String @function(name: "CreateConnect5Game-${env}")
 }
