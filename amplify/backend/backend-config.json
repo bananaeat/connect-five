@@ -49,6 +49,14 @@
               "userPoolConfig": {
                 "userPoolId": "authconnectfive971a6032"
               }
+            },
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 365,
+                "apiKeyExpirationDate": "2023-12-13T23:49:07.969Z",
+                "description": "Create, read and update connect5 game sessions"
+              }
             }
           ]
         }

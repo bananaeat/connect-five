@@ -10,6 +10,12 @@
       {
         "mode": "AMAZON_COGNITO_USER_POOLS",
         "cognitoUserPoolId": "authconnectfive971a6032"
+      },
+      {
+        "mode": "API_KEY",
+        "expirationTime": 365,
+        "apiKeyExpirationDate": "2023-12-13T23:49:07.969Z",
+        "keyDescription": "Create, read and update connect5 game sessions"
       }
     ],
     "conflictResolution": {}

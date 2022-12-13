@@ -12,6 +12,7 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "api": {
         "connectfive": {
+            "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }

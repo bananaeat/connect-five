@@ -6,6 +6,23 @@ export const createGame = /* GraphQL */ `
     createGame(playerID: $playerID)
   }
 `;
+export const deleteConnect5Game = /* GraphQL */ `
+  mutation DeleteConnect5Game(
+    $input: DeleteConnect5GameInput!
+    $condition: ModelConnect5GameConditionInput
+  ) {
+    deleteConnect5Game(input: $input, condition: $condition) {
+      player1
+      player2
+      moves
+      currentPlayer
+      id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
 export const createComment = /* GraphQL */ `
   mutation CreateComment(
     $input: CreateCommentInput!
@@ -71,23 +88,6 @@ export const updateConnect5Game = /* GraphQL */ `
     $condition: ModelConnect5GameConditionInput
   ) {
     updateConnect5Game(input: $input, condition: $condition) {
-      player1
-      player2
-      moves
-      currentPlayer
-      id
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const deleteConnect5Game = /* GraphQL */ `
-  mutation DeleteConnect5Game(
-    $input: DeleteConnect5GameInput!
-    $condition: ModelConnect5GameConditionInput
-  ) {
-    deleteConnect5Game(input: $input, condition: $condition) {
       player1
       player2
       moves
