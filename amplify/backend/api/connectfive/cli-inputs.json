@@ -4,8 +4,14 @@
     "apiName": "connectfive",
     "serviceName": "AppSync",
     "defaultAuthType": {
-      "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "mode": "AWS_IAM"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authconnectfive971a6032"
+      }
+    ],
+    "conflictResolution": {}
   }
 }
