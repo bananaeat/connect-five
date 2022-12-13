@@ -1,12 +1,14 @@
 import Button from 'react-bootstrap/Button';
-import Grid from './Grid.react'
+import Grid from './Grid.react';
 import { Row, Col } from "react-bootstrap";
-import { pieceChar, testWin, connected } from './Connect5Helper.react'
+import { pieceChar, testWin, connected } from './Connect5Helper.react';
+import { rematchOnClick, exitOnClick } from './Connect5Button.react';
+import { handleCreateOnlineGame, handleJoinOnlineGame } from './Connect5OnlineGame.react';
 import { useState } from 'react';
 import './Connect5.css';
 
-const boardRows = 10;
-const boardCols = 10;
+export const boardRows = 10;
+export const boardCols = 10;
 
 function Map(props) {
     const rowArr = Array.from({ length: boardRows }, (_, i) => i);
@@ -34,6 +36,7 @@ function Map(props) {
 function Connect5() {
     const [pieces, setPieces] = useState(Array.from({ length: boardRows }, _ => Array.from({ length: boardCols }, _ => 0)));
     const [colors, setColors] = useState(Array.from({ length: boardRows }, _ => Array.from({ length: boardCols }, _ => 0)));
+    const [gameState, setGameState] = useState(0);
     const [player, setPlayer] = useState(1);
     const [winner, setWinner] = useState(0);
 
@@ -61,29 +64,6 @@ function Connect5() {
         };
     }
 
-    function rematchOnClick(){
-        setPieces(pieces => {
-            const newpieces = pieces.slice();
-            for(var i = 0; i < boardRows; i++){
-                for(var j = 0; j < boardCols; j++){
-                    newpieces[i][j] = 0;
-                }
-            }
-            return newpieces;
-        });
-        setColors(colors => {
-            const newcolors = colors.slice();
-            for(var i = 0; i < boardRows; i++){
-                for(var j = 0; j < boardCols; j++){
-                    newcolors[i][j] = 0;
-                }
-            }
-            return newcolors;
-        });
-        setPlayer(1);
-        setWinner(0);
-    }
-
     const gridOnClicks = Array.from({ length: boardRows }, (_, r) => Array.from({ length: boardCols }, (_, c) => gridOnClick(r, c)));
 
     return (<Row>
@@ -91,9 +71,15 @@ function Connect5() {
                 <Col xs={16} sm={12} md={8} lg={6}>
                     <div className='gameContainer'>
                         <Map pieces={pieces} colors={colors} onClicks={gridOnClicks}/>
-                        <div className='buttonGroup'>
-                            <Button variant='primary' onClick={rematchOnClick}> Rematch </Button>
-                        </div>
+                        {gameState === 0 && (<div className='buttonGroup'>
+                            <Button variant='primary' onClick={() => setGameState(1)}> Hot Seat Game </Button>
+                            <Button variant='primary' onClick={() => handleCreateOnlineGame(setGameState, setPlayer)}> Create Online Game </Button>
+                            <Button variant='primary' onClick={() => handleJoinOnlineGame(setGameState, setPlayer)}> Join Online Game </Button>
+                        </div>)}
+                        {gameState === 1 && (<div className='buttonGroup'>
+                            <Button variant='primary' onClick={() => rematchOnClick(setPieces, setColors, setPlayer, setWinner)}> Rematch </Button>
+                            <Button variant='primary' onClick={() => exitOnClick(setPieces, setColors, setPlayer, setWinner, setGameState)}> Exit </Button>
+                        </div>)}
                         <div>Current Player: {pieceChar(player)}</div>
                         {winner !== 0 && (<div>Winner is: {pieceChar(winner)}</div>)}
                     </div>
