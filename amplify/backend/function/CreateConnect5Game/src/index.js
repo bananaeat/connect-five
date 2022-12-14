@@ -1,7 +1,7 @@
 import { default as fetch, Request } from 'node-fetch';
 
-const GRAPHQL_ENDPOINT = process.env.API_<YOUR_API_NAME>_GRAPHQLAPIENDPOINTOUTPUT;
-const GRAPHQL_API_KEY = process.env.API_<YOUR_API_NAME>_GRAPHQLAPIKEYOUTPUT;
+const GRAPHQL_ENDPOINT = process.env.API_CONNECTFIVE_GRAPHQLAPIENDPOINTOUTPUT;
+const GRAPHQL_API_KEY = process.env.API_CONNECTFIVE_GRAPHQLAPIKEYOUTPUT;
 
 const query = /* GraphQL */
 `mutation CreateConnect5Game(
