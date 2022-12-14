@@ -8,7 +8,6 @@ export const getComment = /* GraphQL */ `
       content
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -24,7 +23,6 @@ export const listComments = /* GraphQL */ `
         content
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }
@@ -40,7 +38,6 @@ export const getConnect5Game = /* GraphQL */ `
       id
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -59,7 +56,6 @@ export const listConnect5Games = /* GraphQL */ `
         id
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }
