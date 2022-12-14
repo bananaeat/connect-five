@@ -1,8 +1,6 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "connectfive971a6032_identitypool_971a6032",
-    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "connec971a6032",
     "userPoolName": "connectfive971a6032_userpool_971a6032",
     "autoVerifiedAttributes": [
@@ -35,7 +33,7 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "971a6032",
     "resourceName": "connectfive971a6032",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "useDefault": "manual",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
@@ -55,8 +53,6 @@
     },
     "breakCircularDependency": true,
     "dependsOn": [],
-    "thirdPartyAuth": true,
-    "authProviders": [],
     "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {},
@@ -64,6 +60,7 @@
     "parentStack": {
       "Ref": "AWS::StackId"
     },
-    "permissions": []
+    "permissions": [],
+    "authProviders": []
   }
 }

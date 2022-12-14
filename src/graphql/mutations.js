@@ -6,23 +6,6 @@ export const createGame = /* GraphQL */ `
     createGame(playerID: $playerID)
   }
 `;
-export const deleteConnect5Game = /* GraphQL */ `
-  mutation DeleteConnect5Game(
-    $input: DeleteConnect5GameInput!
-    $condition: ModelConnect5GameConditionInput
-  ) {
-    deleteConnect5Game(input: $input, condition: $condition) {
-      player1
-      player2
-      moves
-      currentPlayer
-      id
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
 export const createComment = /* GraphQL */ `
   mutation CreateComment(
     $input: CreateCommentInput!
@@ -33,7 +16,6 @@ export const createComment = /* GraphQL */ `
       content
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -47,7 +29,6 @@ export const updateComment = /* GraphQL */ `
       content
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -61,7 +42,6 @@ export const deleteComment = /* GraphQL */ `
       content
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -78,7 +58,6 @@ export const createConnect5Game = /* GraphQL */ `
       id
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -95,7 +74,22 @@ export const updateConnect5Game = /* GraphQL */ `
       id
       createdAt
       updatedAt
-      owner
+    }
+  }
+`;
+export const deleteConnect5Game = /* GraphQL */ `
+  mutation DeleteConnect5Game(
+    $input: DeleteConnect5GameInput!
+    $condition: ModelConnect5GameConditionInput
+  ) {
+    deleteConnect5Game(input: $input, condition: $condition) {
+      player1
+      player2
+      moves
+      currentPlayer
+      id
+      createdAt
+      updatedAt
     }
   }
 `;

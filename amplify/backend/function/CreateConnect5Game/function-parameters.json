@@ -1,4 +1,14 @@
 {
   "permissions": {},
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "apiConnectfiveGraphqlapiendpointoutput",
+      "environmentVariableName": "API_CONNECTFIVE_GRAPHQLAPIENDPOINTOUTPUT"
+    },
+    {
+      "cloudFormationParameterName": "apiConnectfiveGraphqlapikeyoutput",
+      "environmentVariableName": "API_CONNECTFIVE_GRAPHQLAPIKEYOUTPUT"
+    }
+  ]
 }

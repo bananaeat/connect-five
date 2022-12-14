@@ -21,7 +21,9 @@
       "function": {
         "CreateConnect5Game": {
           "deploymentBucketName": "amplify-amplify7111ce4c021a4-staging-152709-deployment",
-          "s3Key": "amplify-builds/CreateConnect5Game-664f6447316375453149-build.zip"
+          "s3Key": "amplify-builds/CreateConnect5Game-664f6447316375453149-build.zip",
+          "apiConnectfiveGraphqlapiendpointoutput": "https://cfcusb24hfapfjakk35jxyss7i.appsync-api.us-east-1.amazonaws.com/graphql",
+          "apiConnectfiveGraphqlapikeyoutput": "da2-27zhxj5djvbj3f3sowzgic6mgi"
         }
       }
     }

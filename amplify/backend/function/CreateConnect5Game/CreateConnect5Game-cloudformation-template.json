@@ -15,6 +15,12 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "apiConnectfiveGraphqlapiendpointoutput": {
+      "Type": "String"
+    },
+    "apiConnectfiveGraphqlapikeyoutput": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -69,6 +75,12 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "API_CONNECTFIVE_GRAPHQLAPIENDPOINTOUTPUT": {
+              "Ref": "apiConnectfiveGraphqlapiendpointoutput"
+            },
+            "API_CONNECTFIVE_GRAPHQLAPIKEYOUTPUT": {
+              "Ref": "apiConnectfiveGraphqlapikeyoutput"
             }
           }
         },
