@@ -16,7 +16,6 @@ const query = /* GraphQL */
     id
     createdAt
     updatedAt
-    owner
   }
 }
 `;
