@@ -64,7 +64,8 @@ export const handler = async (event) => {
         {
           status: statusCode,
           message: error.message,
-          stack: error.stack
+          stack: error.stack,
+          envs: JSON.stringify(process.env)
         }
       ]
     };
