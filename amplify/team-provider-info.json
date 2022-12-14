@@ -19,10 +19,7 @@
         "connectfive": {}
       },
       "function": {
-        "CreateConnect5Game": {
-          "deploymentBucketName": "amplify-amplify7111ce4c021a4-staging-152709-deployment",
-          "s3Key": "amplify-builds/CreateConnect5Game-756b514c79625a436935-build.zip"
-        }
+        "CreateConnect5Game": {}
       }
     }
   },
