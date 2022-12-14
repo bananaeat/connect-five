@@ -1,15 +1,12 @@
 # This "input" configures a global authorization rule to enable public access to
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 
-type Comment @model @auth(rules: [{ allow: owner }]){
+type Comment @model @auth(rules: [{ allow: public }]){
   id: ID!
   content: String!
 }
 
-type Connect5Game @model @auth(rules: [
-  { allow: public, operations: [create, read] },
-  { allow: owner, operations: [create, read, update] }
-]) {
+type Connect5Game @model @auth(rules: [{ allow: public }]) {
   player1: String!
   player2: String
   moves: [String!]!

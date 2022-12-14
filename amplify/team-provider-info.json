@@ -21,7 +21,7 @@
       "function": {
         "CreateConnect5Game": {
           "deploymentBucketName": "amplify-amplify7111ce4c021a4-staging-152709-deployment",
-          "s3Key": "amplify-builds/CreateConnect5Game-73387a695531626e486a-build.zip"
+          "s3Key": "amplify-builds/CreateConnect5Game-7a51672f416d57707341-build.zip"
         }
       }
     }

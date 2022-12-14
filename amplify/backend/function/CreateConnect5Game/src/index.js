@@ -62,7 +62,7 @@ export const handler = async (event) => {
     body = {
       errors: [
         {
-          status: response.status,
+          status: statusCode,
           message: error.message,
           stack: error.stack
         }
